@@ -28,6 +28,24 @@
   color: #61dafb;
 }
 
+label,
+input {
+  display: block;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0px;
+  height: 8px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(175, 173, 173);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +54,4 @@
     transform: rotate(360deg);
   }
 }
+

@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {AppProvider} from '@shopify/polaris';
+import enTranslations from '@shopify/polaris/locales/en.json';
 
 //miragejs-mock api 
 import './server'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AppProvider i18n={enTranslations}>
+  <App />
+</AppProvider>,
   document.getElementById('root')
 );
 

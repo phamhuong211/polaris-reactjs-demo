@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {AppProvider, Page, Card} from '@shopify/polaris';
+import {AppProvider, Page} from '@shopify/polaris';
 import users from '../data';
-
+import GoogleMap from './GooGleMap'
 
 export default function Users(){
     // const [users, setUsers] = useState(null);
@@ -9,9 +9,6 @@ export default function Users(){
     // const [userFirstName, setUserFirstName] = useState('');
     // const [userLastName, setUserLastName] = useState('');
     // const [userAdd, setUserAdd] = useState('')
-
-    const usersData = users;
-    console.log(usersData)
 
     // useEffect(()=>{
     //     console.log('rerender') 
@@ -33,32 +30,29 @@ export default function Users(){
     //   }
   
     // fetchMyAPI()
+
+
+    const usersData = users;
+    console.log(usersData)
+
+    const listUsers = usersData.map((d)=>{
+        <div classname="wrap-user" key={d.id}>
+            <span>Name: + {d.name}</span>
+            <span>Email: {d.email}</span>
+            <button>Address: {d.address}</button>
+        </div>
+    })
+
     return(
         <AppProvider>
             <Page>
-                {/* <Card sectioned>
-                    {users.map(({}))}
-                </Card> */}
-                <Card sectioned>
-                    <span>Pham Huong</span><br/>
-                    <span>Address: </span>
-                    <span>Hanoi, Vietnam</span>
-                </Card>
-                <Card sectioned>
-                    <span>Pham Huong</span><br/>
-                    <span>Address: </span>
-                    <span>Hanoi, Vietnam</span>
-                </Card>
-                <Card sectioned>
-                    <span>Pham Huong</span><br/>
-                    <span>Address: </span>
-                    <span>Hanoi, Vietnam</span>
-                </Card>
-                <Card sectioned>
-                    <span>Pham Huong</span><br/>
-                    <span>Address: </span>
-                    <span>Hanoi, Vietnam</span>
-                </Card>
+                <div className="oneThree" id="users-list">
+                    {listUsers}
+                </div>
+                <div className="oneThree" id="users-list">
+                <GoogleMap />
+                </div>
+
             </Page>
         </AppProvider>
     )
