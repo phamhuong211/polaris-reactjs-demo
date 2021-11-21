@@ -1,59 +1,58 @@
-import React, {useState, useEffect} from "react";
-import {AppProvider, Page} from '@shopify/polaris';
+import React, {useState} from "react";
+// import {AppProvider, Page} from '@shopify/polaris';
 import users from '../data';
-import GoogleMap from './GooGleMap'
+import GoogleMap from './GooGleMap';
+import Pagination from './Pagination';
 
 export default function Users(){
-    // const [users, setUsers] = useState(null);
-    // const [userId, setUserId] = useState(null);
-    // const [userFirstName, setUserFirstName] = useState('');
-    // const [userLastName, setUserLastName] = useState('');
-    // const [userAdd, setUserAdd] = useState('')
-
-    // useEffect(()=>{
-    //     console.log('rerender') 
-    //     fetch('/api/users')
-    //     .then((res) => res.json())
-    //     .then((json)=> {
-    //         setUsers = json;
-    //         console.log(users)
-    //     })
-    //     .catch((err) => console.log(err))
-    // },[])
-
-    
-    // async function fetchMyAPI() {
-    //     let response = await fetch('api/users')
-    //     response = await response.json()
-    //    console.log("response" + response)
-    //    setUsers(response)
-    //   }
-  
-    // fetchMyAPI()
-
-
-    const usersData = users;
+    const [usersData] = useState(users);
     console.log(usersData)
 
-    const listUsers = usersData.map((d)=>{
-        <div classname="wrap-user" key={d.id}>
-            <span>Name: + {d.name}</span>
-            <span>Email: {d.email}</span>
-            <button>Address: {d.address}</button>
-        </div>
-    })
+    /**
+     * pagination declare
+     */
+    const [currentPage, setCurrentPage] = useState(1);
+    const usersPerPage = 5;
 
+    /**
+     * get current users
+     */
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = usersData.slice(indexOfFirstUser, indexOfLastUser);
+
+    const totalUsers = usersData.length;
+    console.log("userjs TotalUser"+totalUsers)
+    
+    
+    const listUsers = currentUsers.map(user=>(
+        <ul key={user.id} className='list-group mb-4'>
+            <li>Name: + {user.name}</li>
+            <li>Address: + {user.address}</li>
+        </ul>
+    ))
+
+    //change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    //khai báo biến truyền param Address vào GoogleMap
+    const[address, setAdress]=useState();
+    
     return(
-        <AppProvider>
-            <Page>
-                <div className="oneThree" id="users-list">
-                    {listUsers}
-                </div>
-                <div className="oneThree" id="users-list">
-                <GoogleMap />
-                </div>
+        <div>
+            <div className="oneThree" id="users-list">
+                {listUsers}
+                <Pagination
+                    usersPerPage={usersPerPage}
+                    totalUsers={totalUsers}
+                    paginate={paginate}
+                />
+            </div>
 
-            </Page>
-        </AppProvider>
+            <div className="oneThree" id="users-list">
+            <GoogleMap address={address} />
+            </div>
+        </div>
+
     )
 }

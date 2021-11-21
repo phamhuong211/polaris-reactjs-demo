@@ -37,6 +37,7 @@ input {
 label {
   margin-bottom: 0px;
   height: 8px;
+  font-size: 15px;
 }
 
 input {
@@ -46,6 +47,9 @@ input {
   border: 1px solid rgb(175, 173, 173);
 }
 
+.register-form{
+  padding: 100px 0;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
