@@ -11,8 +11,8 @@ import './server'
 
 ReactDOM.render(
   <AppProvider i18n={enTranslations}>
-  <App />
-</AppProvider>,
+    <App />
+  </AppProvider>,
   document.getElementById('root')
 );
 

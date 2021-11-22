@@ -2,18 +2,18 @@ import React from 'react'
 import { GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import {
-  geocodeByAddress,
-  getLatLng,
+        geocodeByAddress,
+        getLatLng,
 } from 'react-places-autocomplete';
 
 const containerStyle = {
-  width: '800px',
-  height: '600px'
+    width: '800px',
+    height: '600px'
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+    lat: -3.745,
+    lng: -38.523
 };
 
 function MyComponent() {

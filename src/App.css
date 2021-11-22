@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
 label,
 input {
   display: block;
@@ -36,16 +42,44 @@ input {
 }
 
 label {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   height: 8px;
   font-size: 15px;
 }
 
 input {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  margin-bottom: 0px;
+  padding: 5px;
+  border-radius: 5px;
   border: 1px solid rgb(175, 173, 173);
+}
+
+.inline-block{
+  width:100%;
+  height:auto;
+  /* background-color:black; */
+  display:flex;
+}
+
+.inline-half{
+  width:50%;
+  height:auto;
+  /* background-color:rgb(218, 247, 218); */
+}
+
+.half-item-1{
+  margin-right: 5px;
+}
+
+.half-item-2{
+  margin-left: 5px;
+}
+
+.center-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
 }
 
 .register-form{

@@ -39,7 +39,9 @@ function Register(){
      */
     const [emailError, setEmailError] = useState('')
     const validateEmail = (e) => {
+        console.log("email target value"+e.target.value)
         setEmail(e.target.value)
+        console.log('set email '+email)
         console.log(email)
         if (validator.isEmail(email)) {
             setEmailError('')
@@ -55,6 +57,7 @@ function Register(){
     */
     const [errorMessage, setErrorMessage] = useState('')
     const validatePassword = (e) => {
+
         setPassword(e.target.value)
         console.log(password)
         if (validator.isStrongPassword(password, {
@@ -88,39 +91,57 @@ function Register(){
       }
     }
 
+    /**
+     * Lỗi render thẻ Layout của Polaris, không tự căn giữa theo chiều dọc mà bị cắt mất phần bên trên
+     * đẩy vào div center và css nó :V
+     * thẻ TextField không thể typed in, đổi qua thẻ input
+     */
     
     return(
         <Page className="page">
+          <div className="center-layout">
             <Layout>
-                <Card sectioned title="Register" className='resgister-form'>
+                <Card sectioned className='resgister-form'>
+                    <h3>Register</h3>
                     <Form >
                         <FormLayout>
-                            <label className="label">Name*</label>
-                            <input
-                                label="Name"
-                                type="text"
-                                value={name}
-                                onChange={(e)=> setName(e.target.value)}
-                              placeholder="Junio"/>
+                            <div className="inline-block">
+                                <div className='inline-half half-item-1'>
+                                  <label className="label">Name*</label>
+                                  <input
+                                      label="Name"
+                                      type="text"
+                                      value={name}
+                                      onChange={(e)=> setName(e.target.value)}
+                                      placeholder="Junio"/>
+                                </div>
+                                <div className='inline-half half-item-2'>
+
+                                <label className="label">Phone Number</label>
+                                <input
+                                    label="Phone number"
+                                    type="tel"
+                                    autoComplete=""
+                                    value={phone}
+                                    onChange={(e)=>setPhone(e.target.value)}
+                                />
+                                </div>
+                            </div>
                             <label className="label">Email *</label>
                             <input
                                 label="Email"
                                 type="text"
                                 autoComplete="email"
                                 onChange={(e)=> validateEmail(e)}
+                                onFocus={(e)=> validateEmail(e)}
+                                onBlur={(e)=> validateEmail(e)}
+
                                 placeholder="123@example.com"
                             />
                             <span style={{
                               color: 'red',
                             }}>{emailError}</span>
-                            <label className="label">Phone Number</label>
-                            <input
-                                label="Phone number"
-                                type="tel"
-                                autoComplete=""
-                                value={phone}
-                                onChange={(e)=>setPhone(e.target.value)}
-                            />
+
                             <label className="label">Address *</label>
                             <input
                                 label="Address"
@@ -128,6 +149,7 @@ function Register(){
                                 autoComplete=""
                                 value={address}
                                 onChange={(e)=>setAddress(e.target.value)}
+                                autoFocus={(e)=>setAddress(e.target.value)}
                             />
                             <label className="label">Password *</label>
                             <input
@@ -157,6 +179,7 @@ function Register(){
                     </Form>
                 </Card>
             </Layout>
+          </div>
         </Page>
     )
 }
