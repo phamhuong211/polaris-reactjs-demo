@@ -10,14 +10,15 @@ import {
 } from '@shopify/polaris';
 import ReCAPTCHA from "react-google-recaptcha";
 import validator from 'validator';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 function Register(){
 
-    const[name, setName] = useState('');
-    const[email, setEmail] = useState("");
-    const[phone, setPhone] = useState('');
-    const[address, setAddress] = useState('');
-    const[password, setPassword] = useState('');
+    const [name, setName] = useState(''),
+          [email, setEmail] = useState(""),
+          [phone, setPhone] = useState(''),
+          [address, setAddress] = useState(''),
+          [password, setPassword] = useState('');
 
 
     /**
@@ -29,9 +30,9 @@ function Register(){
      * ??chưa rõ tại sao
      */
     const[emailStatus,setEmailStatus] = useState();
-    console.log("email Status " + emailStatus)
+    // console.log("email Status " + emailStatus)
     const[passwordStatus, setPasswordStatus] = useState()
-    console.log('pw status ' + passwordStatus)
+    // console.log('pw status ' + passwordStatus)
     
     /**
      * Validate Email by validator
