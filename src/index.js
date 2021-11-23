@@ -10,9 +10,9 @@ import enTranslations from '@shopify/polaris/locales/en.json';
 import './server'
 
 ReactDOM.render(
-  <AppProvider i18n={enTranslations}>
-    <App />
-  </AppProvider>,
+    <AppProvider i18n={enTranslations}>
+      <App />
+    </AppProvider>,
   document.getElementById('root')
 );
 

@@ -47,7 +47,7 @@ function Register(){
             setEmailError('')
             setEmailStatus(true)
         } else {
-            setEmailError('is not valid Email!')
+            setEmailError('Email is not valid!')
             setEmailStatus(false)
         }
     }
@@ -99,86 +99,89 @@ function Register(){
     
     return(
         <Page className="page">
-          <div className="center-layout">
-            <Layout>
-                <Card sectioned className='resgister-form'>
-                    <h3>Register</h3>
-                    <Form >
-                        <FormLayout>
-                            <div className="inline-block">
-                                <div className='inline-half half-item-1'>
-                                  <label className="label">Name*</label>
-                                  <input
-                                      label="Name"
-                                      type="text"
-                                      value={name}
-                                      onChange={(e)=> setName(e.target.value)}
-                                      placeholder="Junio"/>
-                                </div>
-                                <div className='inline-half half-item-2'>
-
-                                <label className="label">Phone Number</label>
+          <div className='wrap-body'>
+            <div className="center-layout">
+              <Card sectioned className='resgister-form'>
+                  <h3>Register</h3>
+                  <Form >
+                      <FormLayout>
+                          <div className="inline-block">
+                              <div className='inline-half half-item-1'>
+                                <label className="label">Name*</label>
                                 <input
-                                    label="Phone number"
-                                    type="tel"
-                                    autoComplete=""
-                                    value={phone}
-                                    onChange={(e)=>setPhone(e.target.value)}
-                                />
-                                </div>
-                            </div>
-                            <label className="label">Email *</label>
-                            <input
-                                label="Email"
-                                type="text"
-                                autoComplete="email"
-                                onChange={(e)=> validateEmail(e)}
-                                onFocus={(e)=> validateEmail(e)}
-                                onBlur={(e)=> validateEmail(e)}
+                                    label="Name"
+                                    type="text"
+                                    value={name}
+                                    onChange={(e)=> setName(e.target.value)}
+                                    placeholder="Junio"/>
+                              </div>
+                              <div className='inline-half half-item-2'>
 
-                                placeholder="123@example.com"
-                            />
-                            <span style={{
-                              color: 'red',
-                            }}>{emailError}</span>
+                              <label className="label">Phone Number</label>
+                              <input
+                                  label="Phone number"
+                                  type="tel"
+                                  autoComplete=""
+                                  value={phone}
+                                  onChange={(e)=>setPhone(e.target.value)}
+                              />
+                              </div>
+                          </div>
+                          <label className="label">Email *</label>
+                          <input
+                              label="Email"
+                              type="text"
+                              autoComplete="off"
+                              onChange={(e)=> validateEmail(e)}
+                              onFocus={(e)=> validateEmail(e)}
+                              onBlur={(e)=> validateEmail(e)}
 
-                            <label className="label">Address *</label>
-                            <input
-                                label="Address"
-                                type="text"
-                                autoComplete=""
-                                value={address}
-                                onChange={(e)=>setAddress(e.target.value)}
-                                autoFocus={(e)=>setAddress(e.target.value)}
-                            />
-                            <label className="label">Password *</label>
-                            <input
-                                label="Password"
-                                type="password"
-                                autoComplete="password"
-                                onChange={(e)=>validatePassword(e)}
-                            />
-                            <span style={{
-                              color: 'red',
-                            }}>{errorMessage}
-                            </span>
-                            <ReCAPTCHA width="100px"
-                            // test sitekey
-                                sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                                onChange={() => ggCaptcha = true}
-                            />
+                              placeholder="123@example.com"
+                          />
+                          <span className='error' style={{
+                            // color: 'red',
+                            // fontWeight: 'bold',
+                            // height: '5px'
+                          }}>{emailError}</span>
 
-                            <Button 
-                                primary
-                                onClick={handleClick}
+                          <label className="label">Address *</label>
+                          <input
+                              label="Address"
+                              type="text"
+                              autoComplete=""
+                              value={address}
+                              onChange={(e)=>setAddress(e.target.value)}
+                              autoFocus={(e)=>setAddress(e.target.value)}
+                          />
+                          <label className="label">Password *</label>
+                          <input
+                              label="Password"
+                              type="password"
+                              autoComplete="password"
+                              onChange={(e)=>validatePassword(e)}
+                          />
+                          <span className="error" style={{
+                            // color: 'red',
+                            // fontWeight: 'bold'
+                          }}>{errorMessage}
+                          </span>
+                          <ReCAPTCHA width="100px"
+                          // test sitekey
+                              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                              onChange={() => ggCaptcha = true}
+                          />
 
-                            >
-                                Submit
-                            </Button>
-                        </FormLayout>
-                    </Form>
-                </Card>
-            </Layout>
+                          <Button 
+                              primary
+                              onClick={handleClick}
+
+                          >
+                              Submit
+                          </Button>
+                      </FormLayout>
+                  </Form>
+              </Card>
+            </div>
           </div>
         </Page>
     )
