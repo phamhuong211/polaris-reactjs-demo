@@ -6,6 +6,8 @@ import {
         getLatLng,
 } from 'react-places-autocomplete';
 
+import Geocode from "react-geocode";
+
 const containerStyle = {
     width: '900px',
     height: '500px'
@@ -17,6 +19,7 @@ const center = {
 };
 
 function MyComponent(address) {
+  Geocode.setApiKey("AIzaSyABV6vYGySaQkZKL5jY7lifEuL7Y5cBIfs")
   console.log(address.address)
   /**
    * address được truyền vào gg khi click vào địa chỉ user
@@ -33,6 +36,19 @@ function MyComponent(address) {
   //     this.center= LatLng
   //   })
   //   .catch(error => console.error('Error', error));
+
+
+  /**
+   * Sử dụng thư viện geoCode
+   */
+  // Get latitude & longitude from address.
+  Geocode.fromAddress(address)
+    .then(res=> {
+      this.center = res.results[0].geometry.location;
+      console.log(center)
+    })
+    .catch(err=> console.log(err))
+
 
   return (
     <LoadScript

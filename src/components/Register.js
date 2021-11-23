@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Header from './Header'
 import {useNavigate} from 'react-router-dom';
 import {
         Layout, 
@@ -89,7 +90,6 @@ function Register(){
       } else if(!ggCaptcha){
         toast.error("Captcha Error!")
       } else {
-        toast.success("Register Successfully!")
         navigate("/users")
       }
     }
@@ -103,6 +103,7 @@ function Register(){
     return(
       <div className='wrap-body'>
         <ToastContainer />
+        <Header/>
         <Page className="page">
             <div className="center-layout">
               <Card sectioned className='resgister-form' title="REGISTER FORM">

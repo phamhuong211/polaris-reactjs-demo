@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 // import {AppProvider, Page} from '@shopify/polaris';
+import Header from './Header'
 import users from '../data';
 import GoogleMap from './GooGleMap';
 import Pagination from './Pagination';
@@ -59,11 +60,14 @@ export default function Users(){
     
     return(
         <div className="wrap-user-map">
-            <div className="inline-block">
+            <Header/>
+            <div className="inline-block user-map-block">
                 <div className="inline-30">
                     <h3>USERS LIST</h3>
-                    {listUsers}
-                    <nav>
+                    <div className='users-container'>
+                        {listUsers}
+                    </div>
+                    <nav className='pagination-container'>
                         <ul className='pagination'>
                             <button 
                                 disabled={currentPage <= 1} 

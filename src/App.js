@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Users from './components/Users';
 import Page404 from './components/Page404';
 
+
 // import {AppProvider} from '@shopify/polaris'
 
 function App() {
@@ -16,7 +17,6 @@ function App() {
         <Route path="/" exact element={<Register/>}/>
         <Route path="/users" element={<Users/>}/>
         <Route path="*" element={<Page404/>}/>
-
       </Routes>
     </Router>
   );
