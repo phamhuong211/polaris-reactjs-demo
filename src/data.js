@@ -28,7 +28,7 @@ var users = [
     name: "Junio",
     email: "junio@example.com",
     phone: "03826548264",
-    address: "75 Đường Hồ Tùng Mậu, Mai Dịch, Cầu Giấy, Hanoi, VietnamHà Nội, Hoàn Kiếm, Hanoi, Vietnam"},
+    address: "75 Đường Hồ Tùng Mậu, Mai Dịch, Cầu Giấy, Hanoi, Vietnam"},
     {   id: "7",
     name: "Arrietty",
     email: "Arrietty@example.com",

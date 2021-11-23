@@ -31,13 +31,23 @@
 .body {
   margin: 0;
   padding: 0;
+  font-family: "Dosis";
 }
 
 
 .wrap-body {
-  height: 500px;
   overflow: hidden;
+  /* background-image: url('./img/wall.jpg'); */
+  height: 100vh;
+  width: auto;
+  /* background-size: cover; */
+  background: linear-gradient(to bottom, #6e529d 0%,#d97b93 100%);
+  /* background-color: #282c34; */
 }
+
+/* .wrap-body .Polaris-Card {
+  background: linear-gradient(to bottom, #6e529d 0%,#d97b93 100%);;
+} */
 
 label,
 input {
@@ -57,12 +67,17 @@ input {
   padding: 6px;
   border-radius: 5px;
   border: 1px solid rgb(175, 173, 173);
+
 }
 
+input:focus{
+  /* border: 1px solid #d97b93; */
+  outline: none;
+}
 
 .error{
   font-weight: bold;
-  color: red;
+  color: rgb(216, 55, 27);
   display: relative;
   font-size: 12px;
   height: 20px;
@@ -77,13 +92,30 @@ input {
   margin-top: 0;
 }
 
+.wrap-body .Polaris-FormLayout__Item:nth-child(11) {
+  text-align: center;
+}
+
+.wrap-body .Polaris-FormLayout__Item input:focus {
+  border: 2px solid #d97b93;
+}
+
+.wrap-body label{
+  color: #833cb3;
+  font-weight: 600;
+}
+
 .wrap-body .Polaris-Heading {
   text-align: center;
   font-size: 24px;
+  color:  #833cb3;
 }
 
 .wrap-user-map{
-  padding-top: 30px
+  padding-top: 60px;
+  background-color: #222831;
+  height: 100vh;
+  color: #bcb9b7;
 }
 
 
@@ -118,6 +150,55 @@ input {
 .register-form{
   padding: 100px 0;
 }
+
+.Polaris-Button{
+  background-color:#833cb3;
+  color: #fff;
+  font-weight: 600;
+}
+
+.Polaris-Button:hover {
+  background-color:#d97b93;
+}
+
+
+.inline-30{
+  width: 30%;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 14px;
+}
+
+.inline-70{
+  width: 70%;
+  font-size: 14px;
+}
+
+.inline-30 h3{
+  margin-bottom: 20px;
+  font-size: 24px;
+  letter-spacing: 1.5px;
+  color: #efbb35;
+}
+
+.users-list{
+  margin-bottom: 10px;
+}
+
+.user-name span{
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.inline-70 span{
+  margin-left: 5px;
+}
+
+#rc-anchor-alert, .rc-anchor-alert {
+  /* text-indent: -9999px; */
+  color: black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

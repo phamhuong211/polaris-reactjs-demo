@@ -7,7 +7,7 @@ import {
 } from 'react-places-autocomplete';
 
 const containerStyle = {
-    width: '800px',
+    width: '900px',
     height: '500px'
 };
 
@@ -16,18 +16,17 @@ const center = {
     lng: -38.523
 };
 
-function MyComponent() {
+function MyComponent(address) {
+  console.log(address.address)
   /**
    * address được truyền vào gg khi click vào địa chỉ user
-   * khai báo fix value để test
    */
-  // const address = 'Hà Nội, Hoàn Kiếm, Hanoi, Vietnam'
 
   /** 
    * Get LatLng by Address and then update center
    * Error: Uncaught TypeError: Cannot read properties of undefined (reading 'maps') at geocodeByAddress (utils.js:7)
   */
-  // geocodeByAddress(address)
+  // geocodeByAddress(address.address)
   //   .then(results=>getLatLng(results[0]))
   //   .then(LatLng =>{
   //     console.log('success', LatLng);

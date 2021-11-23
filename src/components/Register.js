@@ -11,6 +11,8 @@ import {
 import ReCAPTCHA from "react-google-recaptcha";
 import validator from 'validator';
 import PlacesAutocomplete from 'react-places-autocomplete';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register(){
 
@@ -83,10 +85,11 @@ function Register(){
     const navigate = useNavigate();
     function handleClick() {
       if(!emailStatus || !passwordStatus || name=="" || address==""){
-        alert('Please fill in all the required fields')
+        toast.error('Please fill in all the required fields!')
       } else if(!ggCaptcha){
-        alert('reCaptcha Error')
+        toast.error("Captcha Error!")
       } else {
+        toast.success("Register Successfully!")
         navigate("/users")
       }
     }
@@ -98,15 +101,16 @@ function Register(){
      */
     
     return(
+      <div className='wrap-body'>
+        <ToastContainer />
         <Page className="page">
-          <div className='wrap-body'>
             <div className="center-layout">
               <Card sectioned className='resgister-form' title="REGISTER FORM">
                   <Form >
                       <FormLayout>
                           <div className="inline-block">
                               <div className='inline-half half-item-1'>
-                                <label className="label">Name*</label>
+                                <label className="label">Name *</label>
                                 <input
                                     label="Name"
                                     type="text"
@@ -164,14 +168,14 @@ function Register(){
                             // fontWeight: 'bold'
                           }}>{errorMessage}
                           </span>
-                          <ReCAPTCHA width="00px"
+                          <ReCAPTCHA width="100%" className="reCaptcha"
                           // test sitekey
                               sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                               onChange={() => ggCaptcha = true}
                           />
 
                           <Button 
-                              primary
+                              className="register-button"
                               onClick={handleClick}
 
                           >
@@ -180,9 +184,9 @@ function Register(){
                       </FormLayout>
                   </Form>
               </Card>
-            </div>
           </div>
         </Page>
+      </div>
     )
 }
 

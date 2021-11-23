@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import users from '../data';
 import GoogleMap from './GooGleMap';
 import Pagination from './Pagination';
-import PaginationTest from './PaginationTest'
 
 export default function Users(){
     const [usersData] = useState(users);
@@ -27,7 +26,7 @@ export default function Users(){
     
     //khai báo biến truyền param Address vào GoogleMap
     const [userAddress, setUserAddress] = useState('')
-    console.log("userAddress" + userAddress)
+    // console.log("userAddress" + userAddress)
     
     const listUsers = currentUsers.map(user=>(
         // <ul key={user.id}>
@@ -35,8 +34,8 @@ export default function Users(){
         //     <li>Address: <a href='' onClick={(add)=>setUserAdress(add)}>{user.address}</a></li>
         // </ul>
         <div className="users-list" key={user.id} onClick={()=> setUserAddress(user.address)}>
-            <div>
-                
+            <div className="user-name">
+                <i className="fas fa-user"></i>
                 <span>{user.name}</span>
             </div>
             <span>{user.address}</span>
@@ -57,11 +56,12 @@ export default function Users(){
     function handlePageChange(newPage){
         paginate(newPage);
     }
-      
+    
     return(
         <div className="wrap-user-map">
             <div className="inline-block">
-                <div className="inline-40" id="users-list mt-5 col-md-4">
+                <div className="inline-30">
+                    <h3>USERS LIST</h3>
                     {listUsers}
                     <nav>
                         <ul className='pagination'>
@@ -94,7 +94,9 @@ export default function Users(){
                     /> */}
                 </div>
 
-                <div className="inline-60" id="users-list col-md-8">
+                <div className="inline-70">
+                    <i className="fas fa-map-marker-alt"></i>
+                    <span>Location: {userAddress}</span>
                     <GoogleMap address={userAddress} />
                 </div>
             </div>
