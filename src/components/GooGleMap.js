@@ -57,7 +57,7 @@ function MyComponent(address) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={14}
+        zoom={12}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <Marker 

@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import Header from './Header'
 import users from '../data';
 import GoogleMap from './GooGleMap';
-import Pagination from './Pagination';
 
 export default function Users(){
     const [usersData] = useState(users);
@@ -75,13 +74,13 @@ export default function Users(){
                             >
                                 pre
                             </button>
-                                {totalPages.map(number => (
-                                    <li key={number} className='page-item'>
-                                        <a onClick={() => paginate(number)} className='page-link'>
-                                            {number}
-                                        </a>
-                                    </li>
-                                ))}
+                            {totalPages.map(number => (
+                                <li key={number} className='page-item'>
+                                    <a onClick={() => paginate(number)} className='page-link'>
+                                        {number}
+                                    </a>
+                                </li>
+                            ))}
                             <button 
                                 disabled={currentPage >= Math.ceil(totalUsers / usersPerPage)}  
                                 onClick={()=> handlePageChange(currentPage + 1)}
@@ -90,12 +89,6 @@ export default function Users(){
                             </button>
                         </ul>
                     </nav>
-
-                    {/* <PaginationTest
-                        usersPerPage={usersPerPage}
-                        totalUsers={totalUsers}
-                        paginate={paginate}
-                    /> */}
                 </div>
 
                 <div className="inline-70">

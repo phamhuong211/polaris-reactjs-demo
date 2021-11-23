@@ -263,10 +263,34 @@ input:focus{
   bottom: 0;
 }
 
+.pagination button {
+  border: none;
+}
+
 .pagination{
   margin-bottom: 0px;
   cursor: pointer;
 }
+
+.pagination li a,
+.pagination button{
+  background-color: #222831;
+  color:#efbb35;
+}
+
+.pagination li a:hover,
+.pagination button:hover{
+  background-color: rgb(225,225,225,0.3);
+  color:#efbb35;
+}
+
+
+.page-link {
+  color:#efbb35 !important;
+  border: none;
+}
+
+
 
 .inline-70 span{
   margin-left: 5px;
