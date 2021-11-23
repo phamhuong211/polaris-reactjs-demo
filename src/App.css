@@ -59,13 +59,33 @@ input {
   border: 1px solid rgb(175, 173, 173);
 }
 
+
 .error{
   font-weight: bold;
   color: red;
   display: relative;
   font-size: 12px;
   height: 20px;
+  margin-top: -1.6rem;
 }
+
+.wrap-body .Polaris-FormLayout__Item:nth-child(4) {
+  margin-top: 0;
+}
+
+.wrap-body .Polaris-FormLayout__Item:nth-child(9) {
+  margin-top: 0;
+}
+
+.wrap-body .Polaris-Heading {
+  text-align: center;
+  font-size: 24px;
+}
+
+.wrap-user-map{
+  padding-top: 30px
+}
+
 
 .inline-block{
   width:100%;
@@ -94,7 +114,6 @@ input {
   left: 50%;
   transform: translate(-50%,-50%)
 }
-
 
 .register-form{
   padding: 100px 0;

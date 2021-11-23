@@ -8,7 +8,7 @@ import {
 
 const containerStyle = {
     width: '800px',
-    height: '600px'
+    height: '500px'
 };
 
 const center = {
@@ -42,7 +42,7 @@ function MyComponent() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={14}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <Marker 

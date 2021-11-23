@@ -67,7 +67,7 @@ function Register(){
           setErrorMessage('')
           setPasswordStatus(true)
         } else {
-          setErrorMessage('Passwords must be at least 8 characters long and 1 uppercase(A-Z)')
+          setErrorMessage('must be at least 8 characters long and 1 uppercase(A-Z)')
           setPasswordStatus(false)
         }
     }
@@ -101,8 +101,7 @@ function Register(){
         <Page className="page">
           <div className='wrap-body'>
             <div className="center-layout">
-              <Card sectioned className='resgister-form'>
-                  <h3>Register</h3>
+              <Card sectioned className='resgister-form' title="REGISTER FORM">
                   <Form >
                       <FormLayout>
                           <div className="inline-block">
@@ -165,7 +164,7 @@ function Register(){
                             // fontWeight: 'bold'
                           }}>{errorMessage}
                           </span>
-                          <ReCAPTCHA width="100px"
+                          <ReCAPTCHA width="00px"
                           // test sitekey
                               sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                               onChange={() => ggCaptcha = true}

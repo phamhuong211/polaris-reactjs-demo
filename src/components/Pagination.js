@@ -1,29 +1,29 @@
 import React from 'react';
 
-const Pagination = ({usersPerPage, totalUsers, paginate}) =>{
-    const pageNumbers =[];
+const PaginationTest = ({usersPerPage, totalUsers, paginate}) =>{
+    const totalPages =[];
     
     console.log("Total"+totalUsers);
 
     for (let i=1; i<= Math.ceil(totalUsers / usersPerPage); i++) {
-        pageNumbers.push(i);
-        console.log("page Number"+pageNumbers)
+        totalPages.push(i);
+        console.log("Total page"+ totalPages)
     }
 
     return(
-    <nav>
-        <ul className='pagination'>
-        {pageNumbers.map(number => (
-            <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} className='page-link'>
-                {number}
-            </a>
-            </li>
-        ))}
-        </ul>
-    </nav>
+        <nav>
+            <ul className='pagination'>
+                {totalPages.map(number => (
+                    <li key={number} className='page-item'>
+                        <a onClick={() => paginate(number)} className='page-link'>
+                            {number}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 };
 
 
-export default Pagination;
+export default PaginationTest;
