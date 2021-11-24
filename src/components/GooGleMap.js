@@ -29,13 +29,13 @@ function MyComponent(address) {
    * Get LatLng by Address and then update center
    * Error: Uncaught TypeError: Cannot read properties of undefined (reading 'maps') at geocodeByAddress (utils.js:7)
   */
-  geocodeByAddress(address.address)
-    .then(results=>getLatLng(results[0]))
-    .then(LatLng =>{
-      console.log('success', LatLng);
-      this.center= LatLng
-    })
-    .catch(error => console.error('Error', error));
+  // geocodeByAddress(address.address)
+  //   .then(results=>getLatLng(results[0]))
+  //   .then(LatLng =>{
+  //     console.log('success', LatLng);
+  //     this.center= LatLng
+  //   })
+  //   .catch(error => console.error('Error', error));
 
 
   /**
