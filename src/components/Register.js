@@ -117,7 +117,7 @@ function Register(){
                                     type="text"
                                     value={name}
                                     onChange={(e)=> setName(e.target.value)}
-                                    placeholder="Junio"/>
+                                    placeholder="Max"/>
                               </div>
                               <div className='inline-half half-item-2'>
 
